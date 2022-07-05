@@ -11,19 +11,30 @@ export class AppComponent {
     { type: "server", name: "TestServerB", content: "Just a test B" },
   ];
 
-  onServerAdded(serverData: {serverName: string, serverContent: string}) {
+  onServerAdded(serverData: { serverName: string; serverContent: string }) {
     this.serverElements.push({
-      type: 'server',
+      type: "server",
       name: serverData.serverName,
-      content: serverData.serverContent
+      content: serverData.serverContent,
     });
   }
 
-  onBlueprintAdded(blueprintData: {serverName: string, serverContent: string}) {
+  onBlueprintAdded(blueprintData: {
+    serverName: string;
+    serverContent: string;
+  }) {
     this.serverElements.push({
-      type: 'blueprint',
+      type: "blueprint",
       name: blueprintData.serverName,
-      content: blueprintData.serverContent
+      content: blueprintData.serverContent,
     });
+  }
+
+  onChangeFirst() {
+    this.serverElements[0].name = "Changed!";
+  }
+
+  onDestroyFirst() {
+    this.serverElements.splice(0, 1);
   }
 }
